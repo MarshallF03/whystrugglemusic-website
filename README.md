@@ -13,3 +13,7 @@ Website for Why Struggle Music (WSM), run by Bradley McKnight. Published by GitH
 Home, About, Services, Why Struggle Records (label and roster), Music business resources hub, Shop (external, at shop.whystrugglemusic.com), Improving accessibility in music, Contact. Terms and conditions and licence agreements to follow.
 
 Right now the site is a single "coming soon" page.
+
+## Writing style
+
+All text on the site uses British English spelling (colour, organise, licence as a noun, programme, catalogue, and so on). Please check spelling before pushing.
