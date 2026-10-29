@@ -19,7 +19,10 @@
   var categories = [].slice.call(select.options).map(function (o) { return o.value; });
 
   function words(text) {
-    return text.toLowerCase().trim().split(/\s+/).filter(Boolean);
+    // "PRS's" finds PRS guides: a trailing 's (straight or curly apostrophe) is ignored.
+    return text.toLowerCase().trim().split(/\s+/)
+      .map(function (w) { return w.replace(/['’]s$/, ""); })
+      .filter(Boolean);
   }
 
   function topicName() {

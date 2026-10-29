@@ -1,0 +1,48 @@
+name: Check, build and deploy to GitHub Pages
+
+# On every push to main: checks spelling is British English, runs the tests,
+# builds the site with build.py and publishes it. If the spelling check or a
+# test fails, nothing is published and the live site stays as it was.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install markdown
+      - name: Check spelling is British English
+        run: python check_spelling.py
+      - name: Run tests
+        run: python -m unittest -v
+      - id: pages
+        uses: actions/configure-pages@v5
+      - run: python build.py --base "${{ steps.pages.outputs.base_path }}"
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

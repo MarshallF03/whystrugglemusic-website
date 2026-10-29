@@ -84,7 +84,7 @@ body {
 .site-name { margin: 0 0 0.75rem; text-align: center; }
 .site-name a { display: inline-block; }
 /* The logo is a JPEG with its own light grey background. */
-.site-name img { display: block; width: 120px; height: 120px; border-radius: 10px; }
+.site-name img { display: block; width: 264px; max-width: 100%; height: auto; border-radius: 8px; }
 @media (prefers-color-scheme: dark) {
   .site-name img { outline: 1px solid var(--border); }
 }

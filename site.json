@@ -4,9 +4,10 @@
   "description": "Why Struggle Music is home to Why Struggle Records, a music business resources hub and support for blind and visually impaired musicians. Run by Bradley McKnight.",
   "site_url": "https://www.whystrugglemusic.com",
   "logo": {
-    "src": "/assets/images/logo.jpg",
+    "src": "/assets/images/logo-wide.jpg",
     "alt": "Why Struggle Music home page"
   },
+  "share_image": "/assets/images/logo.jpg",
   "emails": [
     {
       "address": "contact@whystrugglemusic.com",

@@ -192,7 +192,7 @@ class Site:
         lead_html = f'<p class="lead">{esc(lead)}</p>' if lead else ""
         site_url = self.c.get("site_url", "").rstrip("/")
         page_url = f"{site_url}{path}" if site_url else ""
-        img = image or self.c["logo"]["src"]
+        img = image or self.c["share_image"]
         og_image = f'<meta property="og:image" content="{site_url}{img}">' if site_url else ""
         logo = self.c["logo"]
         year = datetime.date.today().year
@@ -219,7 +219,7 @@ class Site:
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="site-header">
-    <p class="site-name"><a href="/"><img src="{logo['src']}" alt="{esc(logo['alt'])}" width="120" height="120"></a></p>
+    <p class="site-name"><a href="/"><img src="{logo['src']}" alt="{esc(logo['alt'])}" width="264" height="100"></a></p>
     <nav aria-label="Main">
       <ul>
         {''.join(nav_items)}
