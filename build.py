@@ -439,9 +439,13 @@ class Site:
     def resources_hub(self, articles: list) -> str:
         options = "".join(f'<option value="{esc(slug)}">{esc(name)}</option>' for slug, name in self.categories.items())
         items = "".join(self.article_item(a) for a in articles)
-        empty = "" if articles else '<p class="empty-state">Articles are on the way. Check back soon.</p>'
+        # Until the first guide is up, a search box with nothing to search would only confuse.
+        if not articles:
+            return ('<h2 id="articles-heading">Guides coming soon</h2>\n'
+                    '<p class="empty-state">Guides and articles will be uploaded to the hub soon.</p>')
         return f"""<form class="search" role="search" aria-labelledby="search-heading" action="/resources/" method="get">
   <h2 id="search-heading">Find a guide</h2>
+  <p>Search the guides by keyword, or choose a topic to narrow them down. For example, try searching for PRS or royalties.</p>
   <div class="field">
     <label for="q">Search by keyword</label>
     <input type="search" id="q" name="q" autocomplete="off" aria-describedby="q-hint">
@@ -455,8 +459,7 @@ class Site:
 </form>
 <h2 id="articles-heading">Guides</h2>
 <p id="results-status" class="status" role="status" aria-live="polite"></p>
-{empty}
-<ul class="articles" id="articles" aria-labelledby="articles-heading"{' hidden' if not articles else ''}>{items}</ul>"""
+<ul class="articles" id="articles" aria-labelledby="articles-heading">{items}</ul>"""
 
     def article_page(self, a: dict) -> str:
         cat = self.categories[a["category"]]

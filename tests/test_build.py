@@ -176,15 +176,15 @@ class BuildTests(unittest.TestCase):
     def test_hub_empty_state(self):
         out, _ = self.build()
         page = read(out, "/resources/")
-        self.assertIn("Articles are on the way", page)
-        self.assertIn('<label for="category">', page)
-        self.assertIn('<select id="category" name="category">', page)
-        self.assertIn('role="search"', page)
+        self.assertIn("Guides and articles will be uploaded to the hub soon.", page)
+        self.assertNotIn('role="search"', page)
 
     def test_articles_listed_and_indexed(self):
         out, _ = self.build(articles={"2026-10-01-prs.md": ARTICLE_A, "2026-10-02-distributor.md": ARTICLE_B})
         page = read(out, "/resources/")
         self.assertIn('href="/resources/how-to-register-a-work-with-prs/"', page)
+        self.assertIn('<select id="category" name="category">', page)
+        self.assertIn('role="search"', page)
         item = re.search(r'<li class="article"[^>]*data-category="pros"[^>]*>', page)
         self.assertIsNotNone(item)
         self.assertIn("songwriter royalties", item.group(0))
