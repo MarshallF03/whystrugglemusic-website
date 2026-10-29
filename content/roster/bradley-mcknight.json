@@ -3,7 +3,7 @@
   "order": 1,
   "summary": "Totally blind singer-songwriter, music producer and rapper from Nottinghamshire, and the founder of Why Struggle Music.",
   "image": "/assets/images/bradley-mcknight.jpg",
-  "image_alt": "Bradley, seen from behind, sits at a desk in his home studio wearing headphones. One hand is on a keyboard and the other is on a laptop. A poster on the wall reads What is life without music.",
+  "image_alt": "Bradley, seen from behind, at the desk in his home studio, wearing headphones, with one hand on a keyboard and the other on a laptop.",
   "members": [],
   "releases": [
     {
@@ -12,7 +12,8 @@
       "spotify_id": "4cak5oHY8c7UIqo0n6DcAa",
       "youtube": "https://www.youtube.com/watch?v=yTlzniNKTJc",
       "image": "/assets/images/rising-up.jpg",
-      "image_alt": "Single artwork for Rising Up: the words rising up in white over dark grey storm clouds."
+      "image_alt": "Single artwork for Rising Up: the words rising up in white over dark storm clouds.",
+      "image_description": "A square black and white image of a heavy, stormy sky. Dark grey clouds swirl across the whole frame, with a paler patch to the right of centre where light is trying to break through. In the middle, in small, lower-case white letters in a classic serif typeface, are the words rising up."
     },
     {
       "title": "Met You In The Dark",
@@ -20,22 +21,46 @@
       "spotify_id": "4Hj7aTGWGzqK2sNqyQVe3K",
       "youtube": "https://www.youtube.com/watch?v=SSw0xS4E4BU",
       "image": "/assets/images/met-you-in-the-dark.jpg",
-      "image_alt": "Single artwork for Met You In The Dark: golden sunlight pours through a glass door into a dark, empty room."
+      "image_alt": "Single artwork for Met You In The Dark: golden sunlight pours through a glass door into a dark, empty room.",
+      "image_description": "A square photo of a bare, dark room. On the far wall, a tall glass door opens on to a small balcony with metal railings, and bright golden-orange sunlight, like a low sunrise or sunset, floods through it. The light stretches across the dusty floor towards the viewer in long warm streaks, while the rest of the room stays almost black. Across the top, in small white capital letters, are the words MET YOU IN THE DARK."
     },
     {
       "title": "All I Need",
       "spotify_type": "track",
       "spotify_id": "1dcourmGXrHxkwAq3L3de8",
       "image": "/assets/images/all-i-need.jpg",
-      "image_alt": "Single artwork for All I Need: two people in silhouette sit side by side under a starry night sky and the Milky Way."
+      "image_alt": "Single artwork for All I Need: two people in silhouette sit side by side under a starry night sky and the Milky Way.",
+      "image_description": "A square image with a pale cream border. At the top, in large black capital letters in a classic serif typeface, is BRADLEY MCKNIGHT, and at the bottom, ALL I NEED. In the centre is a photo of a night sky crowded with stars, with the glowing band of the Milky Way rising up the middle in soft pinks, oranges and browns. At the bottom of the photo, two people sit side by side with their backs to us, completely in black silhouette against the sky, on dark hills. The one on the left has long hair; the one on the right has shorter, shoulder-length hair."
     }
   ],
   "links": [
-    { "name": "Spotify", "url": "https://open.spotify.com/artist/23a1ZUG3LCo13NavR0404J" },
-    { "name": "Apple Music", "url": "https://music.apple.com/gb/artist/bradley-mcknight/1656517323" },
-    { "name": "YouTube", "url": "https://www.youtube.com/@BradleyMcknight", "handle": "@BradleyMcknight" },
-    { "name": "Instagram", "url": "https://www.instagram.com/bradleymcknightofficial", "handle": "@bradleymcknightofficial" },
-    { "name": "Facebook", "url": "https://www.facebook.com/BRADLEYMCKNIGHTOFFICIAL" },
-    { "name": "TikTok", "url": "https://www.tiktok.com/@bradleymcknightofficial", "handle": "@bradleymcknightofficial" }
-  ]
+    {
+      "name": "Spotify",
+      "url": "https://open.spotify.com/artist/23a1ZUG3LCo13NavR0404J"
+    },
+    {
+      "name": "Apple Music",
+      "url": "https://music.apple.com/gb/artist/bradley-mcknight/1656517323"
+    },
+    {
+      "name": "YouTube",
+      "url": "https://www.youtube.com/@BradleyMcknight",
+      "handle": "@BradleyMcknight"
+    },
+    {
+      "name": "Instagram",
+      "url": "https://www.instagram.com/bradleymcknightofficial",
+      "handle": "@bradleymcknightofficial"
+    },
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com/BRADLEYMCKNIGHTOFFICIAL"
+    },
+    {
+      "name": "TikTok",
+      "url": "https://www.tiktok.com/@bradleymcknightofficial",
+      "handle": "@bradleymcknightofficial"
+    }
+  ],
+  "image_description": "A photo taken from above and behind Bradley as he works in his small home studio. He has short, light brown hair, clipped very short at the back and sides, and wears a grey and black top. He sits in a grey padded office chair at a white corner desk, with a pair of dark navy over-ear headphones on. His left hand rests on a black 49-key controller keyboard with a panel of controls at its left end; it looks like a Native Instruments Komplete Kontrol keyboard. His right hand is on the keyboard of a black MacBook with a notch at the top of the screen, which shows the green rolling hills of the macOS Sonoma wallpaper. On the desk are a black cube-shaped box, a white desk tidy holding papers and folders, two small round clear discs propped against the wall, and a flat black box, probably an external drive, with a cable coiled beside it. A small black speaker or stand sits behind his head. The left wall is covered in grey brick-effect wallpaper; the back wall is plain white. Above the desk, a black wall shelf with a wooden trim holds three white storage boxes full of cables, plus an orange strap. Above that hangs a large black and white canvas print with a black banner across the middle reading What is life without music in white capitals. Around the banner are six photos: a pair of headphones, a violin lying on sheet music, piano keys with the letters L, O, V, E and a heart written on them, a pair of headphones with a curly cable, a hand holding a brass instrument, and an old upright piano with a maker's badge reading Berlin."
 }

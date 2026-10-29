@@ -3,12 +3,24 @@
   "order": 2,
   "summary": "Nottinghamshire pop/rock band representing neurodivergent and disabled communities, with songs that come from the heart.",
   "image": "/assets/images/little-trees.jpg",
-  "image_alt": "The four members of Little Trees in black and white, standing against a tall brick wall in a narrow alley. Shimara, at the front, is looking up at the sky; the other three look towards the camera.",
+  "image_alt": "The four members of Little Trees in black and white, standing against a tall brick wall in a narrow alley. Shimara, at the front, looks up at the sky; the other three look towards the camera.",
   "members": [
-    { "name": "Shimara Hyman", "role": "vocals" },
-    { "name": "Ricky Van Kroonenburg", "role": "guitar and vocals" },
-    { "name": "Marshall Fairbrother", "role": "bass" },
-    { "name": "Oliver Pratley", "role": "drums" }
+    {
+      "name": "Shimara Hyman",
+      "role": "vocals"
+    },
+    {
+      "name": "Ricky Van Kroonenburg",
+      "role": "guitar and vocals"
+    },
+    {
+      "name": "Marshall Fairbrother",
+      "role": "bass"
+    },
+    {
+      "name": "Oliver Pratley",
+      "role": "drums"
+    }
   ],
   "releases": [
     {
@@ -17,7 +29,8 @@
       "spotify_id": "2KDkhha2xBXhtxRgeFYOCv",
       "apple": "https://music.apple.com/gb/album/stronger/6803255595",
       "image": "/assets/images/stronger.jpg",
-      "image_alt": "Single artwork for Stronger: the word Stronger in bold black lettering over wavy bands of bright green and pale yellow, with the Little Trees logo underneath."
+      "image_alt": "Single artwork for Stronger: the word Stronger in chunky black lettering over wavy bands of bright green and pale yellow, with the Little Trees logo underneath.",
+      "image_description": "A square, bright and playful design. The background is a pattern of wavy, liquid-looking shapes in two colours, vivid grass green and pale lemon yellow, like a retro lava lamp. Across the middle, in big, rounded, hand-drawn black letters, is the word Stronger. Below it is the Little Trees logo in black: the words LITTLE TREES in bold, slightly wonky capitals, with the I in LITTLE replaced by a small pine tree, like a car air freshener, hanging from a little loop. The word SINGLE is printed in small black capitals in the top left corner."
     },
     {
       "title": "So Now You Want Me",
@@ -25,14 +38,34 @@
       "spotify_id": "1ByHAhnxv1CqaOetglOmTf",
       "apple": "https://music.apple.com/gb/album/so-now-you-want-me/6818795882",
       "image": "/assets/images/so-now-you-want-me.jpg",
-      "image_alt": "Single artwork for So Now You Want Me: the words Now You Want Me in black handwriting across a wavy pattern of red and salmon pink, with the Little Trees logo underneath."
+      "image_alt": "Single artwork for So Now You Want Me: the words Now You Want Me in black handwriting across a wavy pattern of red and salmon pink, with the Little Trees logo underneath.",
+      "image_description": "A square design matching the Stronger artwork, but in red. The background is a pattern of wavy, liquid-looking shapes in deep red and salmon pink. Across the middle, in black, hand-drawn letters, are the words Now You Want Me. Below that is the Little Trees logo in dark red: the words LITTLE TREES in bold, slightly wonky capitals, with the I in LITTLE replaced by a small pine tree hanging from a little loop, like a car air freshener. LITTLE TREES is printed small in the top left corner and SINGLE in the bottom left."
     }
   ],
   "links": [
-    { "name": "Website", "url": "https://www.littletreesnotts.com", "handle": "littletreesnotts.com" },
-    { "name": "Spotify", "url": "https://open.spotify.com/artist/4LaIBaPHoU4LEhBI0QwN3g" },
-    { "name": "Apple Music", "url": "https://music.apple.com/gb/artist/little-trees/6803134433" },
-    { "name": "YouTube", "url": "https://www.youtube.com/@littletreesband", "handle": "@littletreesband" },
-    { "name": "Instagram", "url": "https://www.instagram.com/littletreeshq", "handle": "@littletreeshq" }
-  ]
+    {
+      "name": "Website",
+      "url": "https://www.littletreesnotts.com",
+      "handle": "littletreesnotts.com"
+    },
+    {
+      "name": "Spotify",
+      "url": "https://open.spotify.com/artist/4LaIBaPHoU4LEhBI0QwN3g"
+    },
+    {
+      "name": "Apple Music",
+      "url": "https://music.apple.com/gb/artist/little-trees/6803134433"
+    },
+    {
+      "name": "YouTube",
+      "url": "https://www.youtube.com/@littletreesband",
+      "handle": "@littletreesband"
+    },
+    {
+      "name": "Instagram",
+      "url": "https://www.instagram.com/littletreeshq",
+      "handle": "@littletreeshq"
+    }
+  ],
+  "image_description": "A moody black and white photo taken from low down, looking up a narrow alley between tall brick buildings towards a pale, overcast sky. The right-hand wall fills most of the picture: plain brickwork with a drainpipe, a small boxy wall light and a few faint scribbles of graffiti near the bottom. The four band members are grouped in the bottom of the frame. At the front in the middle is Shimara, with long locs pulled back, wearing a dark hoodie with large lettering across the front; she tilts her head right back to look up at the sky. On the left, a young man with short, swept-up hair wears a black hoodie with the GAP logo in large white capital letters. Behind him, a man with long, wavy, shoulder-length hair wears a black T-shirt with white lettering. On the right, a young man with short dark hair, wearing a grey T-shirt, looks steadily at the camera."
 }

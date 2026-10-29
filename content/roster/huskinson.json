@@ -3,12 +3,24 @@
   "order": 3,
   "summary": "Nottinghamshire alt rock band with anthems that punch in the gut but keep their melody and groove.",
   "image": "/assets/images/alien.jpg",
-  "image_alt": "Artwork for Alien: a bald man's face painted in a Day of the Dead sugar skull design in cream, teal and red, surrounded by red roses, with the word ALIEN in red above.",
+  "image_alt": "Artwork for Alien: a bald man's face painted as a Day of the Dead sugar skull, surrounded by red roses, with the word ALIEN in red above.",
   "members": [
-    { "name": "Marcus Shaw", "role": "vocals" },
-    { "name": "Andy Dawson", "role": "guitar" },
-    { "name": "Rob Huskinson", "role": "bass guitar" },
-    { "name": "Chris Huskinson", "role": "drums" }
+    {
+      "name": "Marcus Shaw",
+      "role": "vocals"
+    },
+    {
+      "name": "Andy Dawson",
+      "role": "guitar"
+    },
+    {
+      "name": "Rob Huskinson",
+      "role": "bass guitar"
+    },
+    {
+      "name": "Chris Huskinson",
+      "role": "drums"
+    }
   ],
   "releases": [
     {
@@ -17,7 +29,8 @@
       "spotify_id": "5oylkyh3mGvXnK07xU04ot",
       "apple": "https://music.apple.com/gb/album/mary-jane/6808736674",
       "image": "/assets/images/mary-jane.jpg",
-      "image_alt": "Single artwork for Mary Jane: a woman's face painted in a Day of the Dead sugar skull design in cream, teal and orange, framed by dark hair and red and orange flowers, with the words MARY JANE in white."
+      "image_alt": "Single artwork for Mary Jane: a woman's face painted as a Day of the Dead sugar skull, framed by dark hair and red and orange flowers, with MARY JANE in white.",
+      "image_description": "A square, richly coloured digital illustration of a woman's face, painted as a Mexican Day of the Dead sugar skull. Her skin is cream, with ornate swirls, dots and teardrop shapes in red, orange and turquoise across her forehead and cheeks. Wide dark teal rings circle her pale blue eyes, the tip of her nose is painted dark teal, and thin black lines stitched across her red lips suggest skull teeth. Long, dark, wavy hair flows around her face, decorated with big red and orange roses, marigold-like flowers, teal leaves and small red berries. In the top left corner, in large white capital letters, are the words MARY JANE."
     },
     {
       "title": "Alien",
@@ -26,13 +39,29 @@
       "apple": "https://music.apple.com/gb/album/alien/6808526806",
       "youtube": "https://www.youtube.com/watch?v=LFODxAtH78w",
       "image": "/assets/images/alien.jpg",
-      "image_alt": "Single artwork for Alien: a bald man's face painted in a Day of the Dead sugar skull design in cream, teal and red, surrounded by red roses, with the word ALIEN in red above."
+      "image_alt": "Single artwork for Alien: a bald man's face painted as a Day of the Dead sugar skull, surrounded by red roses, with the word ALIEN in red above.",
+      "image_description": "A square, richly coloured digital illustration of a bald man staring straight ahead with a serious expression, his face painted as a Mexican Day of the Dead sugar skull. His forehead has a symmetrical pattern of swirls and a heart shape in red, teal and black on a cream base. Dark teal rings surround his pale blue eyes, the tip of his nose is painted dark teal, and black stitch lines run across his mouth and chin like skull teeth. More teal and red swirls run down his neck. He is completely surrounded by deep red roses, dark teal leaves and clusters of small red berries on a black background. Above his head, in large, bright red capital letters, is the word ALIEN."
     }
   ],
   "links": [
-    { "name": "Spotify", "url": "https://open.spotify.com/artist/0ZLEbe7TedLkaaK9DNjIyR" },
-    { "name": "Apple Music", "url": "https://music.apple.com/gb/artist/huskinson/6808446184" },
-    { "name": "YouTube", "url": "https://www.youtube.com/@huskinsonofficial", "handle": "@huskinsonofficial" },
-    { "name": "Instagram", "url": "https://www.instagram.com/huskinsonband", "handle": "@huskinsonband" }
-  ]
+    {
+      "name": "Spotify",
+      "url": "https://open.spotify.com/artist/0ZLEbe7TedLkaaK9DNjIyR"
+    },
+    {
+      "name": "Apple Music",
+      "url": "https://music.apple.com/gb/artist/huskinson/6808446184"
+    },
+    {
+      "name": "YouTube",
+      "url": "https://www.youtube.com/@huskinsonofficial",
+      "handle": "@huskinsonofficial"
+    },
+    {
+      "name": "Instagram",
+      "url": "https://www.instagram.com/huskinsonband",
+      "handle": "@huskinsonband"
+    }
+  ],
+  "image_description": "A square, richly coloured digital illustration of a bald man staring straight ahead with a serious expression, his face painted as a Mexican Day of the Dead sugar skull. His forehead has a symmetrical pattern of swirls and a heart shape in red, teal and black on a cream base. Dark teal rings surround his pale blue eyes, the tip of his nose is painted dark teal, and black stitch lines run across his mouth and chin like skull teeth. More teal and red swirls run down his neck. He is completely surrounded by deep red roses, dark teal leaves and clusters of small red berries on a black background. Above his head, in large, bright red capital letters, is the word ALIEN."
 }

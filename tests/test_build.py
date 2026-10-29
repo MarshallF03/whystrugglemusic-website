@@ -24,6 +24,9 @@ def make_project(articles: dict | None = None, extra_artist: dict | None = None)
             shutil.copytree(src, tmp / name)
         else:
             shutil.copy(src, tmp / name)
+    # Tests use their own articles only, not whatever is on the site right now.
+    for existing in (tmp / "content" / "resources").glob("*.md"):
+        existing.unlink()
     for filename, text in (articles or {}).items():
         (tmp / "content" / "resources" / filename).write_text(text, encoding="utf-8")
     if extra_artist:
@@ -110,6 +113,14 @@ class BuildTests(unittest.TestCase):
             "Spotify player: All I Need by Bradley McKnight",
         ])
         self.assertIn('href="https://open.spotify.com/track/4cak5oHY8c7UIqo0n6DcAa"', page)
+
+    def test_full_picture_descriptions(self):
+        out, _ = self.build()
+        page = read(out, "/records/bradley-mcknight/")
+        self.assertIn('<details class="image-description"><summary>Full picture description'
+                      '<span class="visually-hidden">: photo of Bradley McKnight</span></summary>', page)
+        self.assertIn("Full picture description<span class=\"visually-hidden\">: Rising Up artwork</span>", page)
+        self.assertEqual(page.count('<details class="image-description">'), 4)
 
     def test_missing_optional_links(self):
         out, _ = self.build(extra_artist={

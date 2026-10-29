@@ -50,12 +50,12 @@
       message = "No guides match";
       if (query.length) { message += " “" + input.value.trim() + "”"; }
       if (category) { message += " in " + topicName(); }
-      message += ". Try a different word or choose All topics.";
+      message += (/[.!?]$/.test(message) ? "" : ".") + " Try a different word or choose All topics.";
     } else {
       message = "Showing " + shown + " of " + items.length + " guides";
       if (query.length) { message += " matching “" + input.value.trim() + "”"; }
       if (category) { message += " in " + topicName(); }
-      message += ".";
+      if (!/[.!?]$/.test(message)) { message += "."; }
     }
     // textContent, never innerHTML: the search words are never treated as code.
     if (announce) { status.textContent = message; }

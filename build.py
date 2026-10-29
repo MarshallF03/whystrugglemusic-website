@@ -153,8 +153,8 @@ NAV = [
     ("Home", "/"),
     ("About", "/about/"),
     ("Services", "/services/"),
-    ("Records", "/records/"),
-    ("Resources", "/resources/"),
+    ("Record label", "/records/"),
+    ("Music business hub", "/resources/"),
     ("Accessibility", "/accessibility/"),
     ("Contact", "/contact/"),
 ]
@@ -267,11 +267,25 @@ class Site:
         return f'<ul class="inline">{"".join(items)}</ul>' if items else ""
 
     @staticmethod
-    def figure(src: str, alt: str, css: str, caption: str = "") -> str:
+    def describe(description: str, about: str) -> str:
+        """A full picture description, closed until someone opens it.
+
+        The image's alt text stays short so screen reader users are not made to
+        sit through a paragraph every time; the detail is here for anyone who wants it.
+        """
+        if not description:
+            return ""
+        return (f'<details class="image-description"><summary>Full picture description'
+                f'<span class="visually-hidden">: {esc(about)}</span></summary>'
+                f'<p>{esc(description)}</p></details>')
+
+    @classmethod
+    def figure(cls, src: str, alt: str, css: str, caption: str = "", description: str = "", about: str = "") -> str:
         if not src:
             return ""
         cap = f"<figcaption>{esc(caption)}</figcaption>" if caption else ""
-        return f'<figure class="{css}"><img src="{src}" alt="{esc(alt)}" loading="lazy">{cap}</figure>'
+        return (f'<figure class="{css}"><img src="{src}" alt="{esc(alt)}" loading="lazy">{cap}'
+                f'{cls.describe(description, about)}</figure>')
 
     # -- Roster -----------------------------------------------------------
     def roster_list(self, artists: list, heading_level: int = 3) -> str:
@@ -290,7 +304,8 @@ class Site:
 
     def artist_page(self, a: dict, posts: list) -> str:
         name = a["name"]
-        parts = [self.figure(a.get("image", ""), a.get("image_alt", ""), "artist-photo")]
+        parts = [self.figure(a.get("image", ""), a.get("image_alt", ""), "artist-photo",
+                             description=a.get("image_description", ""), about=f"photo of {name}")]
         parts.append(f'<section aria-labelledby="bio-heading"><h2 id="bio-heading">About {esc(name)}</h2>'
                      f'{self.text(a["bio"], a["slug"])}')
         if a["members"]:
@@ -311,6 +326,7 @@ class Site:
                     f'<li class="release" aria-labelledby="{rid}">'
                     f'{self.figure(r.get("image", ""), r.get("image_alt", ""), "artwork")}'
                     f'<div><h3 id="{rid}">{esc(r["title"])}</h3>'
+                    f'{self.describe(r.get("image_description", ""), r["title"] + " artwork")}'
                     f'{self.spotify_embed(r["spotify_type"], r["spotify_id"], r["title"], name) if r.get("spotify_id") else ""}'
                     f'{extra_html}</div></li>'
                 )
@@ -474,7 +490,7 @@ def build(root: Path, out: Path, base: str = "") -> dict:
         artist = next((a for a in artists if a["slug"] == p.get("artist")), None)
         back = f'<p><a href="/records/{artist["slug"]}/">More about {esc(artist["name"])}</a></p>' if artist else ""
         body = (f'<p><time datetime="{p["date_obj"].isoformat()}">{nice_date(p["date_obj"])}</time></p>'
-                f'{site.figure(p.get("image", ""), p.get("image_alt", ""), "post-photo")}'
+                f'{site.figure(p.get("image", ""), p.get("image_alt", ""), "post-photo", description=p.get("image_description", ""), about=p["title"])}'
                 f'{site.text(p["body"], "records/news/" + p["slug"])}{back}'
                 f'<p><a href="/records/">Back to Why Struggle Records</a></p>')
         write(out, f"/records/news/{p['slug']}/", site.layout(
