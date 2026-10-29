@@ -94,7 +94,7 @@ class BuildTests(unittest.TestCase):
 
     def test_placeholders_reported(self):
         _, result = self.build()
-        self.assertIn("about", result["placeholders"])
+        self.assertIn("services", result["placeholders"])
 
     def test_roster_headings_link_to_artist_pages(self):
         out, _ = self.build()
