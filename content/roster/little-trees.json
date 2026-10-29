@@ -1,0 +1,38 @@
+{
+  "name": "Little Trees",
+  "order": 2,
+  "summary": "Nottinghamshire pop/rock band representing neurodivergent and disabled communities, with songs that come from the heart.",
+  "image": "/assets/images/little-trees.jpg",
+  "image_alt": "The four members of Little Trees in black and white, standing against a tall brick wall in a narrow alley. Shimara, at the front, is looking up at the sky; the other three look towards the camera.",
+  "members": [
+    { "name": "Shimara Hyman", "role": "vocals" },
+    { "name": "Ricky Van Kroonenburg", "role": "guitar and vocals" },
+    { "name": "Marshall Fairbrother", "role": "bass" },
+    { "name": "Oliver Pratley", "role": "drums" }
+  ],
+  "releases": [
+    {
+      "title": "Stronger",
+      "spotify_type": "track",
+      "spotify_id": "2KDkhha2xBXhtxRgeFYOCv",
+      "apple": "https://music.apple.com/gb/album/stronger/6803255595",
+      "image": "/assets/images/stronger.jpg",
+      "image_alt": "Single artwork for Stronger: the word Stronger in bold black lettering over wavy bands of bright green and pale yellow, with the Little Trees logo underneath."
+    },
+    {
+      "title": "So Now You Want Me",
+      "spotify_type": "album",
+      "spotify_id": "1ByHAhnxv1CqaOetglOmTf",
+      "apple": "https://music.apple.com/gb/album/so-now-you-want-me/6818795882",
+      "image": "/assets/images/so-now-you-want-me.jpg",
+      "image_alt": "Single artwork for So Now You Want Me: the words Now You Want Me in black handwriting across a wavy pattern of red and salmon pink, with the Little Trees logo underneath."
+    }
+  ],
+  "links": [
+    { "name": "Website", "url": "https://www.littletreesnotts.com", "handle": "littletreesnotts.com" },
+    { "name": "Spotify", "url": "https://open.spotify.com/artist/4LaIBaPHoU4LEhBI0QwN3g" },
+    { "name": "Apple Music", "url": "https://music.apple.com/gb/artist/little-trees/6803134433" },
+    { "name": "YouTube", "url": "https://www.youtube.com/@littletreesband", "handle": "@littletreesband" },
+    { "name": "Instagram", "url": "https://www.instagram.com/littletreeshq", "handle": "@littletreeshq" }
+  ]
+}

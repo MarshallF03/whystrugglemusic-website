@@ -1,0 +1,39 @@
+{
+  "title": "Why Struggle Music",
+  "tagline": "A record label, a music business resource and a home for blind and visually impaired musicians.",
+  "description": "Why Struggle Music is home to Why Struggle Records, a music business resources hub and support for blind and visually impaired musicians. Run by Bradley McKnight.",
+  "site_url": "https://www.whystrugglemusic.com",
+  "logo": {
+    "src": "/assets/images/logo.jpg",
+    "alt": "Why Struggle Music home page"
+  },
+  "emails": [
+    {
+      "address": "contact@whystrugglemusic.com",
+      "purpose": "General enquiries"
+    },
+    {
+      "address": "artistservices@whystrugglemusic.com",
+      "purpose": "Artists on the label: releases, questions or anything you are not happy with"
+    },
+    {
+      "address": "support@whystrugglemusic.com",
+      "purpose": "Support, for example a problem with an order"
+    },
+    {
+      "address": "bradley@whystrugglemusic.com",
+      "purpose": "To contact Bradley McKnight directly"
+    }
+  ],
+  "footer_email": "contact@whystrugglemusic.com",
+  "social": [],
+  "resource_categories": [
+    { "slug": "distribution", "name": "Distribution" },
+    { "slug": "copyright", "name": "Copyright" },
+    { "slug": "publishing", "name": "Music publishing" },
+    { "slug": "royalties", "name": "Royalties" },
+    { "slug": "pros", "name": "PROs (PRS for Music, PPL and others)" },
+    { "slug": "social-media", "name": "Social media and monetisation" },
+    { "slug": "youtube", "name": "YouTube channel management" }
+  ]
+}

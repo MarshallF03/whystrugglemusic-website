@@ -1,0 +1,41 @@
+{
+  "name": "Bradley McKnight",
+  "order": 1,
+  "summary": "Totally blind singer-songwriter, music producer and rapper from Nottinghamshire, and the founder of Why Struggle Music.",
+  "image": "/assets/images/bradley-mcknight.jpg",
+  "image_alt": "Bradley, seen from behind, sits at a desk in his home studio wearing headphones. One hand is on a keyboard and the other is on a laptop. A poster on the wall reads What is life without music.",
+  "members": [],
+  "releases": [
+    {
+      "title": "Rising Up",
+      "spotify_type": "track",
+      "spotify_id": "4cak5oHY8c7UIqo0n6DcAa",
+      "youtube": "https://www.youtube.com/watch?v=yTlzniNKTJc",
+      "image": "/assets/images/rising-up.jpg",
+      "image_alt": "Single artwork for Rising Up: the words rising up in white over dark grey storm clouds."
+    },
+    {
+      "title": "Met You In The Dark",
+      "spotify_type": "track",
+      "spotify_id": "4Hj7aTGWGzqK2sNqyQVe3K",
+      "youtube": "https://www.youtube.com/watch?v=SSw0xS4E4BU",
+      "image": "/assets/images/met-you-in-the-dark.jpg",
+      "image_alt": "Single artwork for Met You In The Dark: golden sunlight pours through a glass door into a dark, empty room."
+    },
+    {
+      "title": "All I Need",
+      "spotify_type": "track",
+      "spotify_id": "1dcourmGXrHxkwAq3L3de8",
+      "image": "/assets/images/all-i-need.jpg",
+      "image_alt": "Single artwork for All I Need: two people in silhouette sit side by side under a starry night sky and the Milky Way."
+    }
+  ],
+  "links": [
+    { "name": "Spotify", "url": "https://open.spotify.com/artist/23a1ZUG3LCo13NavR0404J" },
+    { "name": "Apple Music", "url": "https://music.apple.com/gb/artist/bradley-mcknight/1656517323" },
+    { "name": "YouTube", "url": "https://www.youtube.com/@BradleyMcknight", "handle": "@BradleyMcknight" },
+    { "name": "Instagram", "url": "https://www.instagram.com/bradleymcknightofficial", "handle": "@bradleymcknightofficial" },
+    { "name": "Facebook", "url": "https://www.facebook.com/BRADLEYMCKNIGHTOFFICIAL" },
+    { "name": "TikTok", "url": "https://www.tiktok.com/@bradleymcknightofficial", "handle": "@bradleymcknightofficial" }
+  ]
+}
