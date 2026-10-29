@@ -210,6 +210,30 @@ ul.releases { list-style: none; padding: 0; margin: 0; }
 }
 .image-description p { margin: 0.25rem 0 0.75rem; max-width: 40rem; }
 
+/* Release countdowns */
+.countdown {
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  background: var(--surface);
+  border: 2px solid var(--text);
+  border-radius: 10px;
+}
+.countdown h2, .countdown h3 { margin-top: 0; }
+.countdown-date { margin: 0.25rem 0; }
+.countdown-live { margin: 0.25rem 0; font-size: 1.3rem; font-weight: 900; }
+.countdown-body { display: grid; grid-template-columns: 12rem 1fr; gap: 1.25rem; align-items: start; margin-top: 0.75rem; }
+.countdown-body h3 { margin-top: 0; }
+@media (max-width: 34rem) { .countdown-body { grid-template-columns: 1fr; } }
+ul.countdowns { list-style: none; padding: 0; margin: 0; }
+
+/* Previous releases table */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+caption { text-align: left; color: var(--muted); padding-bottom: 0.5rem; }
+th, td { text-align: left; vertical-align: top; padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--border); }
+thead th { border-bottom: 2px solid var(--text); }
+tbody th { font-weight: 700; }
+
 /* Embedded players */
 .embed { margin: 0.5rem 0; }
 .embed iframe { border: 0; border-radius: 12px; display: block; }

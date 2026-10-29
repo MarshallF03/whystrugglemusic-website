@@ -98,7 +98,7 @@ class BuildTests(unittest.TestCase):
 
     def test_roster_headings_link_to_artist_pages(self):
         out, _ = self.build()
-        page = read(out, "/records/")
+        page = read(out, "/records/").split('id="roster-heading"')[1]
         names = re.findall(r'<h3><a href="/records/([a-z-]+)/">([^<]+)</a></h3>', page)
         self.assertEqual([n[0] for n in names], ["bradley-mcknight", "little-trees", "huskinson"])
         self.assertEqual(names[2][1], "Huskinson")
@@ -121,6 +121,43 @@ class BuildTests(unittest.TestCase):
                       '<span class="visually-hidden">: photo of Bradley McKnight</span></summary>', page)
         self.assertIn("Full picture description<span class=\"visually-hidden\">: Rising Up artwork</span>", page)
         self.assertEqual(page.count('<details class="image-description">'), 4)
+
+    def test_upcoming_release_countdown_and_tracklist(self):
+        import datetime
+        future = (datetime.date.today() + datetime.timedelta(days=10)).isoformat()
+        out, _ = self.build(extra_artist={
+            "slug": "test-act", "name": "Test Act", "order": 9, "summary": "A test act.",
+            "upcoming": {"title": "Debut", "type": "EP", "date": future, "tracks": ["One", "Two"],
+                         "preorder": [{"name": "Apple Music", "url": "https://example.com/pre"}]},
+        })
+        page = read(out, "/records/test-act/")
+        self.assertIn('<h2 id="upcoming-heading">Coming soon: Debut EP</h2>', page)
+        self.assertIn(f'data-countdown="{future}">That is 10 days from now.</p>', page)
+        self.assertIn("<ol><li>One</li><li>Two</li></ol>", page)
+        self.assertIn(">Pre-order Debut EP on Apple Music</a>", page)
+        self.assertIn('<a href="/records/test-act/">Test Act: Debut EP</a>', read(out, "/records/"))
+        self.assertIn('<a href="/records/test-act/">Test Act: Debut EP</a>', read(out, "/"))
+
+    def test_past_upcoming_release_is_dropped(self):
+        out, _ = self.build(extra_artist={
+            "slug": "test-act", "name": "Test Act", "order": 9, "summary": "A test act.",
+            "upcoming": {"title": "Old", "type": "EP", "date": "2020-01-01"},
+        })
+        self.assertNotIn("Coming soon: Old", read(out, "/records/test-act/"))
+
+    def test_previous_releases_table(self):
+        out, _ = self.build()
+        page = read(out, "/records/little-trees/")
+        self.assertIn('<h2 id="previous-heading">Previously released</h2>', page)
+        rows = re.findall(r'<tr><th scope="row">([^<]+)', page)
+        self.assertEqual(rows, ["So Now You Want Me", "Stronger"])
+        self.assertIn('<time datetime="2026-08-28">28 August 2026</time>', page)
+        self.assertIn("Dean Jackson the first time it was submitted", page)
+
+    def test_accessibility_page_renamed(self):
+        out, _ = self.build()
+        self.assertIn("<h1>Developing accessibility in music</h1>", read(out, "/accessibility/"))
+        self.assertIn('<a href="/accessibility/">Developing accessibility in music</a>', read(out, "/"))
 
     def test_missing_optional_links(self):
         out, _ = self.build(extra_artist={

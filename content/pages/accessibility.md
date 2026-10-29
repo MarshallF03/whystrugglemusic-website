@@ -1,5 +1,5 @@
 ---
-title: Improving accessibility in music
+title: Developing accessibility in music
 lead: Help, tools and links for blind and visually impaired musicians.
 ---
 Making music should be open to everyone. This page brings together resources for blind and visually impaired (BVI) musicians, producers and engineers.

@@ -30,7 +30,8 @@
       "apple": "https://music.apple.com/gb/album/stronger/6803255595",
       "image": "/assets/images/stronger.jpg",
       "image_alt": "Single artwork for Stronger: the word Stronger in chunky black lettering over wavy bands of bright green and pale yellow, with the Little Trees logo underneath.",
-      "image_description": "A square, bright and playful design. The background is a pattern of wavy, liquid-looking shapes in two colours, vivid grass green and pale lemon yellow, like a retro lava lamp. Across the middle, in big, rounded, hand-drawn black letters, is the word Stronger. Below it is the Little Trees logo in black: the words LITTLE TREES in bold, slightly wonky capitals, with the I in LITTLE replaced by a small pine tree, like a car air freshener, hanging from a little loop. The word SINGLE is printed in small black capitals in the top left corner."
+      "image_description": "A square, bright and playful design. The background is a pattern of wavy, liquid-looking shapes in two colours, vivid grass green and pale lemon yellow, like a retro lava lamp. Across the middle, in big, rounded, hand-drawn black letters, is the word Stronger. Below it is the Little Trees logo in black: the words LITTLE TREES in bold, slightly wonky capitals, with the I in LITTLE replaced by a small pine tree, like a car air freshener, hanging from a little loop. The word SINGLE is printed in small black capitals in the top left corner.",
+      "note": "Played on BBC Introducing East Midlands by Dean Jackson the first time it was submitted."
     },
     {
       "title": "So Now You Want Me",
@@ -39,7 +40,8 @@
       "apple": "https://music.apple.com/gb/album/so-now-you-want-me/6818795882",
       "image": "/assets/images/so-now-you-want-me.jpg",
       "image_alt": "Single artwork for So Now You Want Me: the words Now You Want Me in black handwriting across a wavy pattern of red and salmon pink, with the Little Trees logo underneath.",
-      "image_description": "A square design matching the Stronger artwork, but in red. The background is a pattern of wavy, liquid-looking shapes in deep red and salmon pink. Across the middle, in black, hand-drawn letters, are the words Now You Want Me. Below that is the Little Trees logo in dark red: the words LITTLE TREES in bold, slightly wonky capitals, with the I in LITTLE replaced by a small pine tree hanging from a little loop, like a car air freshener. LITTLE TREES is printed small in the top left corner and SINGLE in the bottom left."
+      "image_description": "A square design matching the Stronger artwork, but in red. The background is a pattern of wavy, liquid-looking shapes in deep red and salmon pink. Across the middle, in black, hand-drawn letters, are the words Now You Want Me. Below that is the Little Trees logo in dark red: the words LITTLE TREES in bold, slightly wonky capitals, with the I in LITTLE replaced by a small pine tree hanging from a little loop, like a car air freshener. LITTLE TREES is printed small in the top left corner and SINGLE in the bottom left.",
+      "note": "Played on BBC Introducing East Midlands by Dean Jackson the first time it was submitted."
     }
   ],
   "links": [
@@ -67,5 +69,21 @@
       "handle": "@littletreeshq"
     }
   ],
-  "image_description": "A moody black and white photo taken from low down, looking up a narrow alley between tall brick buildings towards a pale, overcast sky. The right-hand wall fills most of the picture: plain brickwork with a drainpipe, a small boxy wall light and a few faint scribbles of graffiti near the bottom. The four band members are grouped in the bottom of the frame. At the front in the middle is Shimara, with long locs pulled back, wearing a dark hoodie with large lettering across the front; she tilts her head right back to look up at the sky. On the left, a young man with short, swept-up hair wears a black hoodie with the GAP logo in large white capital letters. Behind him, a man with long, wavy, shoulder-length hair wears a black T-shirt with white lettering. On the right, a young man with short dark hair, wearing a grey T-shirt, looks steadily at the camera."
+  "image_description": "A moody black and white photo taken from low down, looking up a narrow alley between tall brick buildings towards a pale, overcast sky. The right-hand wall fills most of the picture: plain brickwork with a drainpipe, a small boxy wall light and a few faint scribbles of graffiti near the bottom. The four band members are grouped in the bottom of the frame. At the front in the middle is Shimara, with long locs pulled back, wearing a dark hoodie with large lettering across the front; she tilts her head right back to look up at the sky. On the left, a young man with short, swept-up hair wears a black hoodie with the GAP logo in large white capital letters. Behind him, a man with long, wavy, shoulder-length hair wears a black T-shirt with white lettering. On the right, a young man with short dark hair, wearing a grey T-shirt, looks steadily at the camera.",
+  "discography": [
+    {
+      "title": "Stronger",
+      "date": "2026-08-28",
+      "type": "Single",
+      "apple": "https://music.apple.com/gb/album/stronger-single/6803255595",
+      "note": "Includes a radio edit. Played on BBC Introducing East Midlands by Dean Jackson the first time it was submitted."
+    },
+    {
+      "title": "So Now You Want Me",
+      "date": "2026-10-09",
+      "type": "Single",
+      "apple": "https://music.apple.com/gb/album/so-now-you-want-me-single/6818795882",
+      "note": "Played on BBC Introducing East Midlands by Dean Jackson the first time it was submitted."
+    }
+  ]
 }

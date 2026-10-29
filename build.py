@@ -155,7 +155,7 @@ NAV = [
     ("Services", "/services/"),
     ("Record label", "/records/"),
     ("Music business hub", "/resources/"),
-    ("Accessibility", "/accessibility/"),
+    ("Developing accessibility in music", "/accessibility/"),
     ("Contact", "/contact/"),
 ]
 
@@ -306,6 +306,7 @@ class Site:
         name = a["name"]
         parts = [self.figure(a.get("image", ""), a.get("image_alt", ""), "artist-photo",
                              description=a.get("image_description", ""), about=f"photo of {name}")]
+        parts.append(self.upcoming(a))
         parts.append(f'<section aria-labelledby="bio-heading"><h2 id="bio-heading">About {esc(name)}</h2>'
                      f'{self.text(a["bio"], a["slug"])}')
         if a["members"]:
@@ -322,16 +323,19 @@ class Site:
                 if r.get("youtube"):
                     extra.append(f'<a href="{esc(r["youtube"])}">{esc(r["title"])} on YouTube</a>')
                 extra_html = f'<p>{" &middot; ".join(extra)}</p>' if extra else ""
+                note_html = f'<p>{esc(r["note"])}</p>' if r.get("note") else ""
                 rel.append(
                     f'<li class="release" aria-labelledby="{rid}">'
                     f'{self.figure(r.get("image", ""), r.get("image_alt", ""), "artwork")}'
                     f'<div><h3 id="{rid}">{esc(r["title"])}</h3>'
+                    f'{note_html}'
                     f'{self.describe(r.get("image_description", ""), r["title"] + " artwork")}'
                     f'{self.spotify_embed(r["spotify_type"], r["spotify_id"], r["title"], name) if r.get("spotify_id") else ""}'
                     f'{extra_html}</div></li>'
                 )
             parts.append(f'<section aria-labelledby="listen-heading"><h2 id="listen-heading">Listen</h2>'
                          f'<ul class="releases">{"".join(rel)}</ul></section>')
+        parts.append(self.discography(a))
         if a["links"]:
             parts.append(f'<section aria-labelledby="links-heading"><h2 id="links-heading">Find {esc(name)} online</h2>'
                          f'{self.link_list(a["links"])}</section>')
@@ -341,6 +345,71 @@ class Site:
                          f'{self.news_list(own)}</section>')
         parts.append('<p><a href="/records/">Back to Why Struggle Records</a></p>')
         return "\n".join(parts)
+
+    # -- Upcoming release and countdown --------------------------------------
+    @staticmethod
+    def upcoming_release(a: dict) -> dict | None:
+        """The artist's next release, if it has not come out yet."""
+        up = a.get("upcoming")
+        if not up or datetime.date.fromisoformat(up["date"]) < datetime.date.today():
+            return None
+        return up
+
+    @staticmethod
+    def countdown(date: str) -> str:
+        """Release date plus a live count. The count is not a live region, so it never interrupts."""
+        d = datetime.date.fromisoformat(date)
+        days = (d - datetime.date.today()).days
+        start = f"That is {days} days from now." if days > 1 else ("That is tomorrow!" if days == 1 else "It is out today!")
+        return (f'<p class="countdown-date">Out on <time datetime="{d.isoformat()}">{nice_date(d)}</time>.</p>'
+                f'<p class="countdown-live" data-countdown="{d.isoformat()}">{start}</p>')
+
+    def upcoming(self, a: dict) -> str:
+        up = self.upcoming_release(a)
+        if not up:
+            return ""
+        title = f'{up["title"]} {up.get("type", "")}'.strip()
+        tracks = "".join(f"<li>{esc(t)}</li>" for t in up.get("tracks", []))
+        tracks_html = f"<h3>Tracklist</h3><ol>{tracks}</ol>" if tracks else ""
+        pre = "".join(f'<li><a href="{esc(l["url"])}">Pre-order {esc(title)} on {esc(l["name"])}</a></li>'
+                      for l in up.get("preorder", []))
+        pre_html = f'<ul class="inline">{pre}</ul>' if pre else ""
+        return (f'<section class="countdown" aria-labelledby="upcoming-heading">'
+                f'<h2 id="upcoming-heading">Coming soon: {esc(title)}</h2>'
+                f'{self.countdown(up["date"])}'
+                f'<div class="countdown-body">'
+                f'{self.figure(up.get("image", ""), up.get("image_alt", ""), "artwork", description=up.get("image_description", ""), about=title + " artwork")}'
+                f'<div>{tracks_html}{pre_html}</div></div></section>')
+
+    def upcoming_list(self, artists: list, heading_level: int = 3) -> str:
+        """Every artist's next release, soonest first, for the home and label pages."""
+        h = f"h{heading_level}"
+        items = []
+        for a in artists:
+            up = self.upcoming_release(a)
+            if up:
+                title = f'{up["title"]} {up.get("type", "")}'.strip()
+                items.append((up["date"],
+                    f'<li class="countdown"><{h}><a href="/records/{a["slug"]}/">{esc(a["name"])}: {esc(title)}</a></{h}>'
+                    f'{self.countdown(up["date"])}</li>'))
+        return f'<ul class="countdowns">{"".join(i for _, i in sorted(items))}</ul>' if items else ""
+
+    # -- Previous releases ---------------------------------------------------
+    def discography(self, a: dict) -> str:
+        rows = sorted(a.get("discography", []), key=lambda r: r["date"], reverse=True)
+        if not rows:
+            return ""
+        body = []
+        for r in rows:
+            d = datetime.date.fromisoformat(r["date"])
+            note = f'<br><span class="meta">{esc(r["note"])}</span>' if r.get("note") else ""
+            listen = f'<a href="{esc(r["apple"])}">{esc(r["title"])} on Apple Music</a>' if r.get("apple") else ""
+            body.append(f'<tr><th scope="row">{esc(r["title"])}{note}</th><td>{esc(r.get("type", ""))}</td>'
+                        f'<td><time datetime="{d.isoformat()}">{nice_date(d)}</time></td><td>{listen}</td></tr>')
+        return (f'<section aria-labelledby="previous-heading"><h2 id="previous-heading">Previously released</h2>'
+                f'<div class="table-wrap"><table><caption>Every release by {esc(a["name"])}, newest first.</caption>'
+                f'<thead><tr><th scope="col">Title</th><th scope="col">Type</th><th scope="col">Released</th>'
+                f'<th scope="col">Listen</th></tr></thead><tbody>{"".join(body)}</tbody></table></div></section>')
 
     # -- Label news -------------------------------------------------------
     def news_list(self, posts: list, heading_level: int = 3, limit: int | None = None) -> str:
@@ -445,7 +514,13 @@ def build(root: Path, out: Path, base: str = "") -> dict:
         write(out, path, site.layout(title=p["title"], path=path, body=body, lead=p.get("lead")))
 
     # Home ------------------------------------------------------------------
-    home_extra = f"""
+    coming = site.upcoming_list(artists)
+    coming_html = f"""
+<section aria-labelledby="coming-heading">
+  <h2 id="coming-heading">Coming soon</h2>
+  {coming}
+</section>""" if coming else ""
+    home_extra = coming_html + f"""
 <section aria-labelledby="artists-heading">
   <h2 id="artists-heading">Our artists</h2>
   {site.roster_list(artists)}
@@ -473,7 +548,7 @@ def build(root: Path, out: Path, base: str = "") -> dict:
     page("contact", "/contact/", site.email_list())
 
     # Records ---------------------------------------------------------------
-    page("records", "/records/", f"""
+    page("records", "/records/", coming_html + f"""
 <section aria-labelledby="roster-heading">
   <h2 id="roster-heading">Our artists</h2>
   {site.roster_list(artists)}

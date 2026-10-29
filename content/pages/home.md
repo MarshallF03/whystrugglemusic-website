@@ -6,6 +6,6 @@ Why Struggle Music is run by Bradley McKnight, a totally blind singer-songwriter
 
 - **Why Struggle Records**, our record label and its roster of artists.
 - **Music business resources**: plain-English guides to distribution, royalties, publishing, copyright and more.
-- **Improving accessibility in music**: help, tools and links for blind and visually impaired musicians.
+- **Developing accessibility in music**: help, tools and links for blind and visually impaired musicians.
 
 [TO COME] A short introduction to Why Struggle Music, written by Bradley.

@@ -62,5 +62,117 @@
       "handle": "@bradleymcknightofficial"
     }
   ],
-  "image_description": "A photo taken from above and behind Bradley as he works in his small home studio. He has short, light brown hair, clipped very short at the back and sides, and wears a grey and black top. He sits in a grey padded office chair at a white corner desk, with a pair of dark navy over-ear headphones on. His left hand rests on a black 49-key controller keyboard with a panel of controls at its left end; it looks like a Native Instruments Komplete Kontrol keyboard. His right hand is on the keyboard of a black MacBook with a notch at the top of the screen, which shows the green rolling hills of the macOS Sonoma wallpaper. On the desk are a black cube-shaped box, a white desk tidy holding papers and folders, two small round clear discs propped against the wall, and a flat black box, probably an external drive, with a cable coiled beside it. A small black speaker or stand sits behind his head. The left wall is covered in grey brick-effect wallpaper; the back wall is plain white. Above the desk, a black wall shelf with a wooden trim holds three white storage boxes full of cables, plus an orange strap. Above that hangs a large black and white canvas print with a black banner across the middle reading What is life without music in white capitals. Around the banner are six photos: a pair of headphones, a violin lying on sheet music, piano keys with the letters L, O, V, E and a heart written on them, a pair of headphones with a curly cable, a hand holding a brass instrument, and an old upright piano with a maker's badge reading Berlin."
+  "image_description": "A photo taken from above and behind Bradley as he works in his small home studio. He has short, light brown hair, clipped very short at the back and sides, and wears a grey and black top. He sits in a grey padded office chair at a white corner desk, with a pair of dark navy over-ear headphones on. His left hand rests on a black 49-key controller keyboard with a panel of controls at its left end; it looks like a Native Instruments Komplete Kontrol keyboard. His right hand is on the keyboard of a black MacBook with a notch at the top of the screen, which shows the green rolling hills of the macOS Sonoma wallpaper. On the desk are a black cube-shaped box, a white desk tidy holding papers and folders, two small round clear discs propped against the wall, and a flat black box, probably an external drive, with a cable coiled beside it. A small black speaker or stand sits behind his head. The left wall is covered in grey brick-effect wallpaper; the back wall is plain white. Above the desk, a black wall shelf with a wooden trim holds three white storage boxes full of cables, plus an orange strap. Above that hangs a large black and white canvas print with a black banner across the middle reading What is life without music in white capitals. Around the banner are six photos: a pair of headphones, a violin lying on sheet music, piano keys with the letters L, O, V, E and a heart written on them, a pair of headphones with a curly cable, a hand holding a brass instrument, and an old upright piano with a maker's badge reading Berlin.",
+  "discography": [
+    {
+      "title": "Dagmar (feat. Thomas Edwards)",
+      "date": "2022-12-23",
+      "type": "Single",
+      "apple": "https://music.apple.com/gb/album/dagmar-feat-thomas-edwards-single/1731156050"
+    },
+    {
+      "title": "Voices",
+      "date": "2023-03-03",
+      "type": "Single",
+      "apple": "https://music.apple.com/gb/album/voices-single/1731150773"
+    },
+    {
+      "title": "Take a Ride",
+      "date": "2023-06-16",
+      "type": "Single",
+      "apple": "https://music.apple.com/gb/album/take-a-ride-single/1686479599"
+    },
+    {
+      "title": "Our Lives",
+      "date": "2023-08-25",
+      "type": "EP",
+      "apple": "https://music.apple.com/gb/album/our-lives-ep/1731159305",
+      "note": "5 tracks: Intro, Our Lives, Back to the Drawing Board (with Sam Brad), Voices and Dagmar (feat. Thomas Edwards)"
+    },
+    {
+      "title": "Too Many Times",
+      "date": "2023-11-10",
+      "type": "Single",
+      "apple": "https://music.apple.com/gb/album/too-many-times-single/1731166707"
+    },
+    {
+      "title": "Can't Refuse It",
+      "date": "2024-03-29",
+      "type": "Single",
+      "apple": "https://music.apple.com/gb/album/cant-refuse-it-single/1733888658"
+    },
+    {
+      "title": "No Love",
+      "date": "2024-05-24",
+      "type": "Single",
+      "apple": "https://music.apple.com/gb/album/no-love-single/1743661103"
+    },
+    {
+      "title": "Make Believe",
+      "date": "2024-06-28",
+      "type": "Single",
+      "apple": "https://music.apple.com/gb/album/make-believe-single/1745689222"
+    },
+    {
+      "title": "Outside",
+      "date": "2024-10-11",
+      "type": "Single",
+      "apple": "https://music.apple.com/gb/album/outside-single/1801844304"
+    },
+    {
+      "title": "The Dark Side",
+      "date": "2024-11-08",
+      "type": "Single",
+      "apple": "https://music.apple.com/gb/album/the-dark-side-single/1802498394"
+    },
+    {
+      "title": "Final Say",
+      "date": "2024-12-13",
+      "type": "Single",
+      "apple": "https://music.apple.com/gb/album/final-say-single/1781257593"
+    },
+    {
+      "title": "A While (with Sam Brad)",
+      "date": "2025-01-24",
+      "type": "Single",
+      "apple": "https://music.apple.com/gb/album/a-while-single/1781534945",
+      "note": "Includes a radio edit"
+    },
+    {
+      "title": "Riots",
+      "date": "2025-02-21",
+      "type": "Single",
+      "apple": "https://music.apple.com/gb/album/riots-single/1795369303"
+    },
+    {
+      "title": "Best Mistake",
+      "date": "2025-03-07",
+      "type": "Single",
+      "apple": "https://music.apple.com/gb/album/best-mistake-single/1783768604"
+    },
+    {
+      "title": "All I Need",
+      "date": "2025-03-28",
+      "type": "Single",
+      "apple": "https://music.apple.com/gb/album/all-i-need-single/1799040539"
+    },
+    {
+      "title": "Met You In The Dark",
+      "date": "2025-07-04",
+      "type": "Single",
+      "apple": "https://music.apple.com/gb/album/met-you-in-the-dark-single/1815090063"
+    },
+    {
+      "title": "Met You In The Dark (Unplugged)",
+      "date": "2025-11-14",
+      "type": "Single",
+      "apple": "https://music.apple.com/gb/album/met-you-in-the-dark-unplugged-single/1852120344"
+    },
+    {
+      "title": "Rising Up",
+      "date": "2026-09-11",
+      "type": "Single",
+      "apple": "https://music.apple.com/gb/album/rising-up-single/6804924069"
+    }
+  ]
 }

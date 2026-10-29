@@ -1,8 +1,47 @@
-// Why Struggle Music website: search and topic filter for the resources hub.
-// The page works without this file (every guide is listed). With it, the list
+// Why Struggle Music website script. The site works without it.
+//
+// Search and topic filter for the music business hub: every guide is listed
+// without this file. With it, the list
 // narrows as you type or pick a topic, and a status message tells screen
 // reader users how many guides match. The address bar keeps ?q= and
 // ?category= up to date, so a filtered list can be shared as a link.
+// Release countdowns: keeps "N days, N hours and N minutes to go" up to date.
+// It is deliberately not a live region, so screen readers are never
+// interrupted; reading the line gives the current count.
+(function () {
+  "use strict";
+
+  var els = document.querySelectorAll("[data-countdown]");
+  if (els.length === 0) { return; }
+
+  function plural(n, word) { return n + " " + word + (n === 1 ? "" : "s"); }
+
+  function update() {
+    var now = new Date();
+    for (var i = 0; i < els.length; i++) {
+      var p = els[i].getAttribute("data-countdown").split("-");
+      var release = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
+      var minutes = Math.floor((release - now) / 60000);
+      var text;
+      if (minutes <= 0) {
+        text = (now - release) < 86400000 ? "It is out today!" : "It is out now.";
+      } else {
+        var days = Math.floor(minutes / 1440);
+        var hours = Math.floor((minutes % 1440) / 60);
+        var mins = minutes % 60;
+        var parts = [];
+        if (days) { parts.push(plural(days, "day")); }
+        if (hours) { parts.push(plural(hours, "hour")); }
+        parts.push(plural(mins, "minute"));
+        text = (parts.length > 1 ? parts.slice(0, -1).join(", ") + " and " + parts[parts.length - 1] : parts[0]) + " to go.";
+      }
+      els[i].textContent = text;
+    }
+  }
+  update();
+  setInterval(update, 60000);
+})();
+
 (function () {
   "use strict";
 

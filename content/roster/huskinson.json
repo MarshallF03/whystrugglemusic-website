@@ -63,5 +63,41 @@
       "handle": "@huskinsonband"
     }
   ],
-  "image_description": "A square, richly coloured digital illustration of a bald man staring straight ahead with a serious expression, his face painted as a Mexican Day of the Dead sugar skull. His forehead has a symmetrical pattern of swirls and a heart shape in red, teal and black on a cream base. Dark teal rings surround his pale blue eyes, the tip of his nose is painted dark teal, and black stitch lines run across his mouth and chin like skull teeth. More teal and red swirls run down his neck. He is completely surrounded by deep red roses, dark teal leaves and clusters of small red berries on a black background. Above his head, in large, bright red capital letters, is the word ALIEN."
+  "image_description": "A square, richly coloured digital illustration of a bald man staring straight ahead with a serious expression, his face painted as a Mexican Day of the Dead sugar skull. His forehead has a symmetrical pattern of swirls and a heart shape in red, teal and black on a cream base. Dark teal rings surround his pale blue eyes, the tip of his nose is painted dark teal, and black stitch lines run across his mouth and chin like skull teeth. More teal and red swirls run down his neck. He is completely surrounded by deep red roses, dark teal leaves and clusters of small red berries on a black background. Above his head, in large, bright red capital letters, is the word ALIEN.",
+  "discography": [
+    {
+      "title": "Alien",
+      "date": "2026-09-25",
+      "type": "Single",
+      "apple": "https://music.apple.com/gb/album/alien-single/6808526806"
+    },
+    {
+      "title": "Mary Jane",
+      "date": "2026-10-16",
+      "type": "Single",
+      "apple": "https://music.apple.com/gb/album/mary-jane-single/6808736674"
+    }
+  ],
+  "upcoming": {
+    "title": "Versus",
+    "type": "EP",
+    "date": "2026-11-06",
+    "preorder": [
+      {
+        "name": "Apple Music",
+        "url": "https://music.apple.com/gb/album/versus-ep/6808765606"
+      }
+    ],
+    "tracks": [
+      "Alien",
+      "Early Warning",
+      "Eden",
+      "Fade",
+      "Get It On",
+      "Mary Jane"
+    ],
+    "image": "/assets/images/versus.jpg",
+    "image_alt": "Artwork for the Versus EP: a huge dark red letter V on a bright red background, with HUSKINSON in black above and VERSUS in black below.",
+    "image_description": "A square, almost entirely red design. The background is a bright, slightly mottled scarlet with faint streaks and texture, like scuffed paint. In the centre is a very large letter V in a deeper red, picked out by heavy shadows along its edges so it looks cut into or raised from the surface. Across the top, overlapping the arms of the V, is the band name HUSKINSON in bold, heavy black capital letters, and at the bottom, in the same black lettering, is the title VERSUS."
+  }
 }
