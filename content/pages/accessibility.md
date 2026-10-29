@@ -39,7 +39,13 @@ We are not affiliated with Spectre Digital.
 
 ### Rock and metal tracking templates
 
-Marshall's own rock and metal tracking templates for Logic Pro and Pro Tools, inspired by Jordan Valeriote's mixing templates. Each one will clearly list the plugins and sample libraries you need to use it.
+Marshall's own rock and metal tracking templates for Logic Pro and Pro Tools, inspired by Jordan Valeriote's mixing templates. There will be three versions:
+
+- **Raw:** guitar amp and drum plugins only, such as Spectre Digital Extinction Level Event (ELE), Neural DSP and STL Tonality plugins.
+- **Live FX:** with effects on while you track, mixed to a good rough standard.
+- **Real mics:** set up for miked amps and drums instead of samples.
+
+Each one will clearly list the plugins and sample libraries you need to use it. Each template also comes with a guide to Marshall's track naming system, so you know how the workflow is normally set up.
 
 ### Installing
 
@@ -51,6 +57,10 @@ Each set of AU and TFX presets will come with an installer that puts the presets
 - [Reaper Accessibility](https://reaperaccessibility.com/): a community wiki with guides, tutorials and a mailing list for blind REAPER users.
 - [Drake Music](https://www.drakemusic.org/): a national charity working in music, disability and technology.
 - [Attitude is Everything](https://www.attitudeiseverything.org.uk/): improving deaf and disabled people's access to live music.
+- [PTAccess](https://ptaccess.github.io/): a free Pro Tools tutorial for screen reader users, with chapters, audio examples and sample sessions.
+- [Flo Tools](https://flotools.org/): free macros that make Pro Tools faster and easier to use for people with visual impairments.
+- [Logic Magician](https://www.theblindlogic.pro/p/logic-magician): Keyboard Maestro macros from The Blind Logic Pro that make Logic Pro quicker to use for blind users.
+- [Marshall Fairbrother's tools](https://marshallfairbrother.com/tools): accessibility tools for blind audio engineers, including macros that let VoiceOver read out loudness meter values.
 - [RNIB](https://www.rnib.org.uk/): the Royal National Institute of Blind People, with advice on technology, work and everyday life with sight loss.
 
 Know a resource that should be here? Email [contact@whystrugglemusic.com](mailto:contact@whystrugglemusic.com).
