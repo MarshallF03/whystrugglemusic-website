@@ -159,6 +159,13 @@ class BuildTests(unittest.TestCase):
         self.assertIn("<h1>Developing accessibility in music</h1>", read(out, "/accessibility/"))
         self.assertIn('<a href="/accessibility/">Developing accessibility in music</a>', read(out, "/"))
 
+    def test_accessibility_products_marked_coming_soon(self):
+        out, _ = self.build()
+        page = read(out, "/accessibility/")
+        self.assertIn("<h2>Coming soon: presets and templates</h2>", page)
+        self.assertIn("nothing below is available to download", page)
+        self.assertIn("We are not affiliated with Spectre Digital.", page)
+
     def test_missing_optional_links(self):
         out, _ = self.build(extra_artist={
             "slug": "test-act", "name": "Test Act", "order": 9, "summary": "A test act.",
