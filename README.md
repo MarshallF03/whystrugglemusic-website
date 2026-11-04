@@ -1,6 +1,6 @@
 # Why Struggle Music website
 
-Website for Why Struggle Music (WSM), run by Bradley McKnight. It will be published by GitHub Pages at www.whystrugglemusic.com. The domain isn't pointed here yet: see [GOING-LIVE.md](GOING-LIVE.md).
+Website for Why Struggle Music (WSM), run by Bradley McKnight. It is published by GitHub Pages at https://www.whystrugglemusic.com. The DNS setup is recorded in [GOING-LIVE.md](GOING-LIVE.md).
 
 Accessibility comes first. Many of the people this site is for, Bradley included, use a screen reader. Every page must work with a keyboard and a screen reader before it goes up.
 
