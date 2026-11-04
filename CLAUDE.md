@@ -11,6 +11,7 @@ This is the live website for www.whystrugglemusic.com. Anything pushed to `main`
 
 ## How to work
 
+- New to this project? `SETUP.md` explains how to install everything.
 - Read `README.md` first: it says where every kind of content lives and how to add articles, news and artists.
 - Before every push, run all three and make sure they pass:
   - `python3 check_spelling.py`
