@@ -16,11 +16,27 @@
 
   function plural(n, word) { return n + " " + word + (n === 1 ? "" : "s"); }
 
+  function releaseDate(iso) {
+    var p = iso.split("-");
+    return new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
+  }
+
+  // From release day, "Coming soon" headings, "Out on" and pre-order links read as out now.
+  function switchReleased(now) {
+    var swaps = document.querySelectorAll("[data-release][data-out-text]");
+    for (var i = 0; i < swaps.length; i++) {
+      if (now >= releaseDate(swaps[i].getAttribute("data-release"))) {
+        swaps[i].textContent = swaps[i].getAttribute("data-out-text");
+        swaps[i].removeAttribute("data-release");
+      }
+    }
+  }
+
   function update() {
     var now = new Date();
+    switchReleased(now);
     for (var i = 0; i < els.length; i++) {
-      var p = els[i].getAttribute("data-countdown").split("-");
-      var release = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
+      var release = releaseDate(els[i].getAttribute("data-countdown"));
       var minutes = Math.floor((release - now) / 60000);
       var text;
       if (minutes <= 0) {

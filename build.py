@@ -347,52 +347,90 @@ class Site:
         return "\n".join(parts)
 
     # -- Upcoming release and countdown --------------------------------------
-    @staticmethod
-    def upcoming_release(a: dict) -> dict | None:
-        """The artist's next release, if it has not come out yet."""
+    # Before its date a release is "Coming soon" with a countdown and pre-order links.
+    # From its date it is "Out now" with listen links, for OUT_NOW_DAYS, then it drops off
+    # (add it to the artist's discography by then). The site rebuilds every night, and
+    # site.js switches the wording at midnight on release day for anyone with a page open.
+    OUT_NOW_DAYS = 14
+
+    @classmethod
+    def upcoming_release(cls, a: dict) -> dict | None:
+        """The artist's next release, if it is still to come or only just out."""
         up = a.get("upcoming")
-        if not up or datetime.date.fromisoformat(up["date"]) < datetime.date.today():
+        if not up:
+            return None
+        if (datetime.date.today() - datetime.date.fromisoformat(up["date"])).days > cls.OUT_NOW_DAYS:
             return None
         return up
 
     @staticmethod
-    def countdown(date: str) -> str:
+    def is_out(up: dict) -> bool:
+        return datetime.date.fromisoformat(up["date"]) <= datetime.date.today()
+
+    @staticmethod
+    def switch(date: str, out: bool, soon_text: str, out_text: str) -> str:
+        """Text plus the attributes site.js uses to swap it for out_text on release day."""
+        if out:
+            return f">{esc(out_text)}"
+        return f' data-release="{date}" data-out-text="{esc(out_text)}">{esc(soon_text)}'
+
+    @classmethod
+    def countdown(cls, date: str) -> str:
         """Release date plus a live count. The count is not a live region, so it never interrupts."""
         d = datetime.date.fromisoformat(date)
         days = (d - datetime.date.today()).days
-        start = f"That is {days} days from now." if days > 1 else ("That is tomorrow!" if days == 1 else "It is out today!")
-        return (f'<p class="countdown-date">Out on <time datetime="{d.isoformat()}">{nice_date(d)}</time>.</p>'
-                f'<p class="countdown-live" data-countdown="{d.isoformat()}">{start}</p>')
+        if days > 1:
+            start = f"That is {days} days from now."
+        elif days == 1:
+            start = "That is tomorrow!"
+        elif days == 0:
+            start = "It is out today!"
+        else:
+            start = "It is out now."
+        when = f'<time datetime="{d.isoformat()}">{nice_date(d)}</time>.'
+        date_line = (f'<p class="countdown-date">Released on {when}</p>' if days <= 0 else
+                     f'<p class="countdown-date"><span data-release="{d.isoformat()}" data-out-text="Released on">Out on</span> {when}</p>')
+        return date_line + f'<p class="countdown-live" data-countdown="{d.isoformat()}">{start}</p>'
 
     def upcoming(self, a: dict) -> str:
         up = self.upcoming_release(a)
         if not up:
             return ""
+        out = self.is_out(up)
         title = f'{up["title"]} {up.get("type", "")}'.strip()
         tracks = "".join(f"<li>{esc(t)}</li>" for t in up.get("tracks", []))
         tracks_html = f"<h3>Tracklist</h3><ol>{tracks}</ol>" if tracks else ""
-        pre = "".join(f'<li><a href="{esc(l["url"])}">Pre-order {esc(title)} on {esc(l["name"])}</a></li>'
-                      for l in up.get("preorder", []))
-        pre_html = f'<ul class="inline">{pre}</ul>' if pre else ""
+        links = []
+        for l in up.get("preorder", []):
+            soon, now = f'Pre-order {title} on {l["name"]}', f'Listen to {title} on {l["name"]}'
+            links.append(f'<li><a href="{esc(l["url"])}"{self.switch(up["date"], out, soon, now)}</a></li>')
+        pre_html = f'<ul class="inline">{"".join(links)}</ul>' if links else ""
+        heading = self.switch(up["date"], out, f"Coming soon: {title}", f"Out now: {title}")
         return (f'<section class="countdown" aria-labelledby="upcoming-heading">'
-                f'<h2 id="upcoming-heading">Coming soon: {esc(title)}</h2>'
+                f'<h2 id="upcoming-heading"{heading}</h2>'
                 f'{self.countdown(up["date"])}'
                 f'<div class="countdown-body">'
                 f'{self.figure(up.get("image", ""), up.get("image_alt", ""), "artwork", description=up.get("image_description", ""), about=title + " artwork")}'
                 f'<div>{tracks_html}{pre_html}</div></div></section>')
 
-    def upcoming_list(self, artists: list, heading_level: int = 3) -> str:
-        """Every artist's next release, soonest first, for the home and label pages."""
+    def upcoming_list(self, artists: list, heading_level: int = 3) -> tuple[str, str]:
+        """Every artist's next or newest release, soonest first, for the home and label pages,
+        and the heading for the section: Coming soon, Out now, or both."""
         h = f"h{heading_level}"
-        items = []
+        items, states = [], set()
         for a in artists:
             up = self.upcoming_release(a)
             if up:
+                states.add(self.is_out(up))
                 title = f'{up["title"]} {up.get("type", "")}'.strip()
                 items.append((up["date"],
                     f'<li class="countdown"><{h}><a href="/records/{a["slug"]}/">{esc(a["name"])}: {esc(title)}</a></{h}>'
                     f'{self.countdown(up["date"])}</li>'))
-        return f'<ul class="countdowns">{"".join(i for _, i in sorted(items))}</ul>' if items else ""
+        if not items:
+            return "", ""
+        heading = {frozenset([False]): "Coming soon", frozenset([True]): "Out now"}.get(
+            frozenset(states), "New and upcoming releases")
+        return f'<ul class="countdowns">{"".join(i for _, i in sorted(items))}</ul>', heading
 
     # -- Previous releases ---------------------------------------------------
     def discography(self, a: dict) -> str:
@@ -517,10 +555,10 @@ def build(root: Path, out: Path, base: str = "") -> dict:
         write(out, path, site.layout(title=p["title"], path=path, body=body, lead=p.get("lead")))
 
     # Home ------------------------------------------------------------------
-    coming = site.upcoming_list(artists)
+    coming, coming_heading = site.upcoming_list(artists)
     coming_html = f"""
 <section aria-labelledby="coming-heading">
-  <h2 id="coming-heading">Coming soon</h2>
+  <h2 id="coming-heading">{coming_heading}</h2>
   {coming}
 </section>""" if coming else ""
     home_extra = coming_html + f"""

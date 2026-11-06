@@ -131,12 +131,51 @@ class BuildTests(unittest.TestCase):
                          "preorder": [{"name": "Apple Music", "url": "https://example.com/pre"}]},
         })
         page = read(out, "/records/test-act/")
-        self.assertIn('<h2 id="upcoming-heading">Coming soon: Debut EP</h2>', page)
+        self.assertIn('>Coming soon: Debut EP</h2>', page)
         self.assertIn(f'data-countdown="{future}">That is 10 days from now.</p>', page)
         self.assertIn("<ol><li>One</li><li>Two</li></ol>", page)
         self.assertIn(">Pre-order Debut EP on Apple Music</a>", page)
         self.assertIn('<a href="/records/test-act/">Test Act: Debut EP</a>', read(out, "/records/"))
         self.assertIn('<a href="/records/test-act/">Test Act: Debut EP</a>', read(out, "/"))
+
+    def release_on(self, days_from_today: int):
+        import datetime
+        date = (datetime.date.today() + datetime.timedelta(days=days_from_today)).isoformat()
+        out, _ = self.build(extra_artist={
+            "slug": "test-act", "name": "Test Act", "order": 9, "summary": "A test act.",
+            "upcoming": {"title": "Debut", "type": "EP", "date": date, "tracks": ["One"],
+                         "preorder": [{"name": "Apple Music", "url": "https://example.com/pre"}]},
+        })
+        return out, date
+
+    def test_release_day_is_out_now_not_coming_soon(self):
+        out, date = self.release_on(0)
+        page = read(out, "/records/test-act/")
+        self.assertNotIn("Coming soon: Debut", page)
+        self.assertIn('<h2 id="upcoming-heading">Out now: Debut EP</h2>', page)
+        self.assertIn(f'Released on <time datetime="{date}">', page)
+        self.assertIn(">Listen to Debut EP on Apple Music</a>", page)
+        self.assertNotIn("Pre-order", page)
+        self.assertIn('<h2 id="coming-heading">Out now</h2>', read(out, "/"))
+
+    def test_recent_release_still_shown_as_out_now(self):
+        out, _ = self.release_on(-5)
+        self.assertIn("Out now: Debut EP", read(out, "/records/test-act/"))
+
+    def test_release_dropped_two_weeks_after(self):
+        out, _ = self.release_on(-15)
+        self.assertNotIn("Debut EP", read(out, "/records/test-act/"))
+        self.assertNotIn("Test Act: Debut", read(out, "/"))
+
+    def test_upcoming_release_carries_out_now_wording_for_release_day(self):
+        out, date = self.release_on(3)
+        page = read(out, "/records/test-act/")
+        self.assertIn(f'data-release="{date}" data-out-text="Out now: Debut EP">Coming soon: Debut EP</h2>', page)
+        self.assertIn(f'data-release="{date}" data-out-text="Listen to Debut EP on Apple Music">Pre-order Debut EP on Apple Music</a>', page)
+
+    def test_daily_rebuild_scheduled(self):
+        workflow = (ROOT / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8")
+        self.assertIn("schedule:", workflow)
 
     def test_past_upcoming_release_is_dropped(self):
         out, _ = self.build(extra_artist={
