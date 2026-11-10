@@ -2,4 +2,4 @@
 title: Why Struggle Records
 lead: Our record label and the artists on it.
 ---
-[TO COME] A description of Why Struggle Records and what the label does.
+Why Struggle Records aims to give artists the support they need to start their music journey, by offering advice, tools and resources that will give them the helping hand they have been waiting for all along.
